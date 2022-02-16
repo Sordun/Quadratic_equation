@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Первое задание</h1>
+<h3>Решаем уравнение a • x² + b • x + c = 0</h3>
+<form action="" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input class="btn btn-secondary btn-lg active" type="Submit" name="submit" value="Посчитать" />
+</form>
+
+{% if submit_button == "Посчитать" %}
+<h2>Дискриминант = {{ discriminant }}</h2>
+<h2>X = {{ discriminant_res }}</h2>
+{% endif %}
+
+<div class="text-center">
+    <a class="btn btn-secondary btn-lg active" href="{% url 'guess_the_color' %}" role="button">Угадать цвет</a>
+</div>
+{% endblock content %}

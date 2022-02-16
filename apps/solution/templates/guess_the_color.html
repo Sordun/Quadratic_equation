@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Второе задание</h1>
+<h2>Угадываем цвет</h2>
+<form action="" method="POST">
+    {% csrf_token %}
+    {{ form2.as_p }}
+    <input class="btn btn-secondary btn-lg active" type="Submit" name="submit2" value="Найти" />
+</form>
+
+{% if submit_button2 == "Найти" %}
+<h2>Цвет = {{ color }}</h2>
+{% endif %}
+
+<div class="text-center">
+    <a class="btn btn-secondary btn-lg active" href="{% url 'calculator' %}" role="button">Поиск корней</a>
+</div>
+{% endblock content %}
